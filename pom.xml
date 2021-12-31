@@ -57,7 +57,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:https://github.com/AnArcheo/SpringBoot-Pet-Clinic.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>SpringBoot-Pet-Clinic-1.0.3</tag>
     </scm>
 
 </project>
