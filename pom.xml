@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.springfrawemork</groupId>
     <artifactId>SpringBoot-Pet-Clinic</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>SpringBoot-Pet-Clinic</name>
     <description>SpringBoot-Pet-Clinic</description>
     <properties>
