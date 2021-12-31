@@ -1,4 +1,4 @@
-package com.springfrawemork.model;
+package com.springframework.springbootpetclinic.model;
 
 public class PetType {
 

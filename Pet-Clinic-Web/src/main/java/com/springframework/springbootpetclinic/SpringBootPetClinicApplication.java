@@ -1,4 +1,4 @@
-package com.springfrawemork.springbootpetclinic;
+package com.springframework.springbootpetclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
