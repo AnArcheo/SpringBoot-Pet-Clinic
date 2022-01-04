@@ -19,11 +19,8 @@
     <description>SpringBoot-Pet-Clinic</description>
     <properties>
         <java.version>11</java.version>
-
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
-    <dependencies>
-
-    </dependencies>
 
     <build>
         <plugins>
@@ -31,6 +28,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <classifier>exec</classifier>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
