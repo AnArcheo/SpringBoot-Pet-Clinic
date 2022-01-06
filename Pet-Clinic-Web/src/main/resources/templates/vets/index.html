@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
 <head>
     <meta charset="UTF-8">
-    <title>List of Vets</title>
+    <title>List Of Vets</title>
 </head>
 <body>
-<!--/*@thymesVar id="vet" type="com.springframework.springbootpetclinic.model.Vet"*/-->
-<h2 th:text="'List of Vets'">index page</h2>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="vet : ${vets}">
-        <td th:text="${vet.id}"> 1</td>
-        <td th:text="${vet.firstName}"> Bob</td>
-        <td th:text="${vet.lastName}"> Lawrence</td>
-    </tr>
-    </tbody>
-</table>
+    <h2 th:text="'List of Vets'">List of Vets..</h2>
+    <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vet : ${vets}">
+            <td th:text="${vet.id}">1</td>
+            <td th:text="${vet.firstName}">joe</td>
+            <td th:text="${vet.lastName}">blog</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
