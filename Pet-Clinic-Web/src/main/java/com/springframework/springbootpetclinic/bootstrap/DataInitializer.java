@@ -51,7 +51,7 @@ public class DataInitializer implements CommandLineRunner {
         owner1.setAddress("4 View Lane");
         owner1.setCity("Dublin");
         owner1.setTelephone("12354367");
-        ownerService.save(owner1);
+        Owner ownerSaved1 = ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("An");
@@ -59,21 +59,21 @@ public class DataInitializer implements CommandLineRunner {
         owner2.setAddress("21 Fox Park");
         owner2.setCity("Cork");
         owner2.setTelephone("568942341");
-        ownerService.save(owner2);
+        Owner ownerSaved2 = ownerService.save(owner2);
 
         System.out.println("Initialized Owners--------");
 
 
         Pet pet1 = new Pet();
         pet1.setPetType(savedPetType1);
-        pet1.setOwner(owner1);
+        pet1.setOwner(ownerSaved1);
         pet1.setBirthDate(LocalDate.now());
         pet1.setName("Mikey");
         owner1.getPets().add(pet1);
 
         Pet pet2 = new Pet();
         pet2.setPetType(savedPetType2);
-        pet2.setOwner(owner2);
+        pet2.setOwner(ownerSaved2);
         pet2.setBirthDate(LocalDate.now());
         pet2.setName("Mira");
         owner2.getPets().add(pet2);
@@ -85,7 +85,7 @@ public class DataInitializer implements CommandLineRunner {
         dogVisit.setPet(pet1);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("Infected Ears");
-        visitService.save(dogVisit);
+        Visit visitSaved = visitService.save(dogVisit);
 
 
 
