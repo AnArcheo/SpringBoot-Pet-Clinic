@@ -1,10 +1,7 @@
 package com.springframework.springbootpetclinic.bootstrap;
 
 import com.springframework.springbootpetclinic.model.*;
-import com.springframework.springbootpetclinic.services.OwnerService;
-import com.springframework.springbootpetclinic.services.PetTypeService;
-import com.springframework.springbootpetclinic.services.SpecialtyService;
-import com.springframework.springbootpetclinic.services.VetService;
+import com.springframework.springbootpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +15,16 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
 
     public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                           SpecialtyService specialtyService) {
+                           SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
 
@@ -64,6 +63,7 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Initialized Owners--------");
 
+
         Pet pet1 = new Pet();
         pet1.setPetType(savedPetType1);
         pet1.setOwner(owner1);
@@ -79,6 +79,14 @@ public class DataInitializer implements CommandLineRunner {
         owner2.getPets().add(pet2);
 
         System.out.println("Initialized Pets--------");
+
+        Visit dogVisit = new Visit();
+        dogVisit.setPet(pet1);
+        dogVisit.setDate(LocalDate.now());
+        dogVisit.setDescription("Infected Ears");
+        visitService.save(dogVisit);
+        System.out.println("Initialized Visits--------");
+
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");

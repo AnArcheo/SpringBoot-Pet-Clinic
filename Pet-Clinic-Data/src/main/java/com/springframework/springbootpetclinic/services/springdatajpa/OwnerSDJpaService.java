@@ -27,6 +27,11 @@ public class OwnerSDJpaService implements OwnerService {
     }
 
     @Override
+    public Owner findByLastName(String lastName) {
+        return ownerRepository.findByLastName(lastName);
+    }
+
+    @Override
     public Set<Owner> findAll() {
         Set<Owner> owners = new HashSet<>();
         ownerRepository.findAll().forEach(owners::add);
@@ -53,8 +58,4 @@ public class OwnerSDJpaService implements OwnerService {
         ownerRepository.deleteById(id);
     }
 
-    @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
-    }
 }
