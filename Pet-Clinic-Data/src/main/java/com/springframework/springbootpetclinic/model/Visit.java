@@ -12,7 +12,7 @@ public class Visit extends BaseEntity{
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) // solve issue with saving visit
     @JoinColumn(name = "pet_id")
     private Pet pet;
 

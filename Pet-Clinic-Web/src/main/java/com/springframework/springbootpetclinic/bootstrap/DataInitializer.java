@@ -85,7 +85,7 @@ public class DataInitializer implements CommandLineRunner {
         dogVisit.setPet(pet1);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("Infected Ears");
-        Visit visitSaved = visitService.save(dogVisit);
+        visitService.save(dogVisit);
 
 
 
