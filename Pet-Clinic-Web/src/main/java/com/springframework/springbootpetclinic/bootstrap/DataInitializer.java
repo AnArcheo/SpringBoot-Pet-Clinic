@@ -80,12 +80,13 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Initialized Pets--------");
 
+
         Visit dogVisit = new Visit();
         dogVisit.setPet(pet1);
         dogVisit.setDate(LocalDate.now());
         dogVisit.setDescription("Infected Ears");
         visitService.save(dogVisit);
-        System.out.println("Initialized Visits--------");
+
 
 
         Speciality radiology = new Speciality();
