@@ -61,6 +61,7 @@ public class DataInitializer implements CommandLineRunner {
         owner2.setTelephone("568942341");
         Owner ownerSaved2 = ownerService.save(owner2);
 
+
         System.out.println("Initialized Owners--------");
 
 
