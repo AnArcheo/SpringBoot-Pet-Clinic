@@ -11,9 +11,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
 
+    public static final String LAST_NAME = "Smith";
     @Mock
     OwnerRepository ownerRepository;
     @Mock
@@ -30,7 +35,11 @@ class OwnerSDJpaServiceTest {
 
     @Test
     void findByLastName() {
-        Owner smith = ownerSDJpaService.findByLastName("Smith");
+        Owner returnOwner = Owner.builder().id(1L).lastName(LAST_NAME).build();
+        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
+        Owner smith = ownerSDJpaService.findByLastName(LAST_NAME);
+
+        assertEquals(LAST_NAME, smith.getLastName());
     }
 
     @Test
