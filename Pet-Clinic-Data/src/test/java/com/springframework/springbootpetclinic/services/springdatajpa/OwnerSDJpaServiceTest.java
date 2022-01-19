@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +41,7 @@ class OwnerSDJpaServiceTest {
         Owner smith = ownerSDJpaService.findByLastName(LAST_NAME);
 
         assertEquals(LAST_NAME, smith.getLastName());
+        verify(ownerRepository).findByLastName(any());
     }
 
     @Test
