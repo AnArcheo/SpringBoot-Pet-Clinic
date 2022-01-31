@@ -5,6 +5,7 @@ import com.springframework.springbootpetclinic.model.Owner;
 import com.springframework.springbootpetclinic.model.PetType;
 import com.springframework.springbootpetclinic.services.OwnerService;
 import com.springframework.springbootpetclinic.services.PetService;
+import com.springframework.springbootpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -23,15 +24,17 @@ public class PetController {
 
     private final PetService petService;
     private final OwnerService ownerService;
+    private final PetTypeService petTypeService;
 
-    public PetController(PetService petService, OwnerService ownerService) {
+    public PetController(PetService petService, OwnerService ownerService, PetTypeService petTypeService) {
         this.petService = petService;
         this.ownerService = ownerService;
+        this.petTypeService = petTypeService;
     }
 
     @ModelAttribute("types")
     public Collection<PetType> populatePetTypes(){
-        return petService.findPetTypes();
+        return petTypeService.findAll();
     }
 
     @ModelAttribute("owner")
