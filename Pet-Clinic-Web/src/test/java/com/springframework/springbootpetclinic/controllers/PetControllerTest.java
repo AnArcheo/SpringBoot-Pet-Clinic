@@ -1,6 +1,8 @@
 package com.springframework.springbootpetclinic.controllers;
 
+
 import com.springframework.springbootpetclinic.model.Owner;
+import com.springframework.springbootpetclinic.model.Pet;
 import com.springframework.springbootpetclinic.model.PetType;
 import com.springframework.springbootpetclinic.services.OwnerService;
 import com.springframework.springbootpetclinic.services.PetService;
@@ -8,6 +10,7 @@ import com.springframework.springbootpetclinic.services.PetTypeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -26,13 +29,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(MockitoExtension.class)
 class PetControllerTest {
+
     @Mock
     PetService petService;
+
     @Mock
     OwnerService ownerService;
+
     @Mock
     PetTypeService petTypeService;
-    @Mock
+
+    @InjectMocks
     PetController petController;
 
     MockMvc mockMvc;
@@ -42,13 +49,15 @@ class PetControllerTest {
 
     @BeforeEach
     void setUp() {
-        owner = Owner.builder().id(1L).build();
+        owner = Owner.builder().id(1l).build();
 
         petTypes = new HashSet<>();
         petTypes.add(PetType.builder().id(1L).name("Dog").build());
         petTypes.add(PetType.builder().id(2L).name("Cat").build());
 
-        mockMvc = MockMvcBuilders.standaloneSetup(petController).build();
+        mockMvc = MockMvcBuilders
+                .standaloneSetup(petController)
+                .build();
     }
 
     @Test
@@ -79,7 +88,7 @@ class PetControllerTest {
     void initUpdateForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
-        //when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
+        when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
 
         mockMvc.perform(get("/owners/1/pets/2/edit"))
                 .andExpect(status().isOk())
