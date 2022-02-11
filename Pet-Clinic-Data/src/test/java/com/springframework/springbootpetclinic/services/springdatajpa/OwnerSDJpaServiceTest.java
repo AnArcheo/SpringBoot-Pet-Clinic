@@ -64,12 +64,12 @@ class OwnerSDJpaServiceTest {
         assertEquals(2, owners.size());
     }
 
-    @Test
-    void findById() {
-        when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
-        Owner owner = ownerSDJpaService.findById(1L);
-        assertNotNull(owner);
-    }
+//    @Test
+//    void findById() {
+//        when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
+//        Owner owner = ownerSDJpaService.findById(1L);
+//        assertNotNull(owner);
+//    }
 
     @Test
     void findByIdNotFound() {
