@@ -44,7 +44,7 @@ class OwnerSDJpaServiceTest {
     }
 
     @Test
-    void findByLastName() {
+    void findByLastName() throws Exception{
         when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
 
         Owner smith = service.findByLastName(LAST_NAME);
@@ -69,7 +69,7 @@ class OwnerSDJpaServiceTest {
     }
 
     @Test
-    void findById() {
+    void findById() throws Exception{
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
 
         Owner owner = service.findById(1L);
@@ -78,7 +78,7 @@ class OwnerSDJpaServiceTest {
     }
 
     @Test
-    void findByIdNotFound() {
+    void findByIdNotFound() throws Exception{
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         Owner owner = service.findById(1L);
